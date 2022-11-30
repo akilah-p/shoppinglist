@@ -72,3 +72,13 @@ export async function editListItems(item) {
         return response.data;
     }
 }
+
+export async function deleteList() {
+    const response = await client.from('grocery-list').delete().match({ user_id: getUser().id });
+
+    if (response.error) {
+        console.error(response.error.message);
+    } else {
+        return response.data;
+    }
+}
