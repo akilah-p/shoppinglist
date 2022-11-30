@@ -53,3 +53,12 @@ export async function createListItem(item, quantity) {
         return response.data;
     }
 }
+
+export async function getListItems() {
+    const response = await client.from('grocery-list').select.match({ user_id: client.auth.user().id });
+    if (response.error) {
+        console.error(response.error.message);
+    } else {
+        return response.data;
+    }
+}
