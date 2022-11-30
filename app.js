@@ -1,36 +1,49 @@
 /* Imports */
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
+import { renderListItem } from './render-utils.js';
+import { getListItems, createListItems, editListItems, deleteLists } from './fetch-utils.js';
 
+const form = document.querySelector('.create-form');
+const deleteBtn = document.querySelector('#delete-button');
+const listEl = document.querySelector('.list');
+const error = document.querySelector('#error');
 
-const signInForm = document.getElementById('sign-in');
-const signInEmail = document.getElementById('sign-in-email');
-const signInPassword = document.getElementById('sign-in-password');
+window.addEventListener('load', async () => {
+    await displayList();
+});
 
-const signUpForm = document.getElementById('sign-up');
-const signUpEmail = document.getElementById('sign-up-email');
-const signUpPassword = document.getElementById('sign-up-password');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-redirectIfLoggedIn();
+    const data = new FormData(form);
+    const item = data.get('item');
+    const quantity = data.get('quantity');
+    form.requestFullscreen();
 
-signUpForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const user = await signUpUser(signUpemail.value, signUpPassword.value);
-
-    if (user) {
-        redirectIfLoggedIn();
+    const newItem = await createListItems(item, quantity);
+    if (newItem) {
+        displayList();
     } else {
-        console.error(user);
+        error.textContent = 'An error occurred while adding your item';
     }
 });
 
-signInForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const user = await signInUser(signInEmail.value.signInPassword.value);
-
-    if (user) {
-        redirectIfLoggedIn();
-    } else {
-        console.error(user);
+// Display Functions
+async function displayList() {
+    listEl.textContent = '';
+    const list = await getListItems();
+    if (list) {
+        for (let item of list) {
+            const listItemEl = renderListItem(item);
+            listItemEl.addEventListener('click', async () => {
+                await editListItems(item);
+                await displayList();
+            });
+            if (item.cross_out) {
+                listItemEl.classList.add('cross-out-true');
+            }
+            listEl.append(listItemEl);
+        }
     }
-});
+}

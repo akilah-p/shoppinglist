@@ -39,7 +39,7 @@ export async function signOutUser() {
 }
 
 /* Data functions */
-export async function createListItem(item, quantity) {
+export async function createListItems(item, quantity) {
     const response = await client.from('grocery-list').insert({
         item: item,
         quantity: quantity,
@@ -73,7 +73,7 @@ export async function editListItems(item) {
     }
 }
 
-export async function deleteList() {
+export async function deleteLists() {
     const response = await client.from('grocery-list').delete().match({ user_id: getUser().id });
 
     if (response.error) {
