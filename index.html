@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- title and favicon -->
-    <title>Supabase Web App</title>
+    <title>Shopping List</title>
     <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
 
     <!-- js -->
@@ -31,30 +31,36 @@
 </head>
 
 <body>
-
-    <main class="auth-main">
-        <div class="left">
-            <div class="auth-container">
-                <form id="sign-up">
-                    <h3> Sign Up</h3>
-                    <label>Email</label><input type="email" name="email" id="sign-up-email" />
-                    <label>Password</label><input type="password" name="password" id="sign-up-password" />
-                    <button>Submit</button>
-                </form>
-            </div>
-        </div>
-        <div class="right">
-            <div class="auth-container">
-                <form id="sign-in">
-                    <h3>Sign In</h3>
-                    <label>Email</label><input type="email" name="email" id="sign-in-email" />
-                    <label>Password</label><input type="password" name="password" id="sign-in-password" />
-                    <button>Submit</button>
-                </form>
-            </div>
-        </div>
+    <header class="page-header">
+        <p class="title">My list of Things</p>
+        <nav>
+            <a id="home-btn" href="/">Home</a>
+            <a id="sign-out-link" href="auth">Sign Out</a>
+        </nav>
+    </header>
+    <main>
+        <section class="prompt">
+            Add items to the list below. Click an item to mark it off your list once you have retrieved it.
+        </section>
+        <section>
+            <form class="create-form">
+                <label id="item-form">
+                    Item:
+                    <input name="item" />
+                </label>
+                <label id="quantity-form">
+                    Quantity:
+                    <input type="number" name="quantity" min="1" />
+                </label>
+                <button type="submit" id="add-button">Add more items</button>
+            </form>
+            <p id="error"></p>
+            <ul class="list"></ul>
+            <section class="delete-btn">
+                <button type="button" id="delete-button">Delete this List</button>
+            </section>
+        </section>
     </main>
-
 
 </body>
 

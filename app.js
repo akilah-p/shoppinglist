@@ -10,7 +10,7 @@ const listEl = document.querySelector('.list');
 const error = document.querySelector('#error');
 
 window.addEventListener('load', async () => {
-    await displayList();
+    await displayLists();
 });
 
 form.addEventListener('submit', async (e) => {
@@ -19,18 +19,18 @@ form.addEventListener('submit', async (e) => {
     const data = new FormData(form);
     const item = data.get('item');
     const quantity = data.get('quantity');
-    form.requestFullscreen();
+    form.reset();
 
     const newItem = await createListItems(item, quantity);
     if (newItem) {
-        displayList();
+        displayLists();
     } else {
         error.textContent = 'An error occurred while adding your item';
     }
 });
 
 // Display Functions
-async function displayList() {
+async function displayLists() {
     listEl.textContent = '';
     const list = await getListItems();
     if (list) {
@@ -38,7 +38,7 @@ async function displayList() {
             const listItemEl = renderListItem(item);
             listItemEl.addEventListener('click', async () => {
                 await editListItems(item);
-                await displayList();
+                await displayLists();
             });
             if (item.cross_out) {
                 listItemEl.classList.add('cross-out-true');
