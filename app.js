@@ -31,8 +31,8 @@ form.addEventListener('submit', async (e) => {
 
 // Display Functions
 async function displayLists() {
-    listEl.textContent = '';
     const list = await getListItems();
+    listEl.textContent = '';
     if (list) {
         for (let item of list) {
             const listItemEl = renderListItem(item);
@@ -47,3 +47,8 @@ async function displayLists() {
         }
     }
 }
+deleteBtn.addEventListener('click', async () => {
+    await deleteLists();
+    await displayLists();
+
+})

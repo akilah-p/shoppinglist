@@ -9,17 +9,6 @@ export function getUser() {
     return client.auth.user();
 }
 
-export async function checkAuth() {
-    const user = getUser();
-
-    if (!user) location.replace('../');
-}
-
-export async function redirectIfLoggedIn() {
-    if (getUser()) {
-        location.replace('./auth');
-    }
-}
 
 export async function signUpUser(email, password) {
     return await client.auth.signUp({
@@ -75,7 +64,7 @@ export async function editListItems(item) {
 }
 
 export async function deleteLists() {
-    const response = await client.from('grocery-list').delete().match({ user_id: getUser().id });
+    const response = await client.from('shopping-list').delete().match({ user_id: getUser().id });
 
     if (response.error) {
         console.error(response.error.message);
