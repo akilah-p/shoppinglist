@@ -25,23 +25,36 @@
     <!-- css -->
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/global.css" />
+    <title>My Shopping List</title>
     <!-- add link for page specific css -->
 
 </head>
 
 <body>
-    <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png" alt="logo">
-        <p class="title">Supabase Web App</p>
-        <nav>
-            <a href="/">Home</a>
-            <a id="sign-out-link" href="auth">Sign Out</a>
-        </nav>
-    </header>
 
-    <main>
-
+    <main class="auth-main">
+        <div class="left">
+            <div class="auth-container">
+                <form id="sign-up">
+                    <h3> Sign Up</h3>
+                    <label>Email</label><input type="email" name="email" id="sign-up-email" />
+                    <label>Password</label><input type="password" name="password" id="sign-up-password" />
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <div class="auth-container">
+                <form id="sign-in">
+                    <h3>Sign In</h3>
+                    <label>Email</label><input type="email" name="email" id="sign-in-email" />
+                    <label>Password</label><input type="password" name="password" id="sign-in-password" />
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
     </main>
+
 
 </body>
 
