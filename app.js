@@ -51,4 +51,4 @@ deleteBtn.addEventListener('click', async () => {
     await deleteLists();
     await displayLists();
 
-})
+});

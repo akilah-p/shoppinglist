@@ -1,0 +1,177 @@
+:root {
+    --color1: rgb(219, 166, 219);
+    --color2: rgb(142, 142, 197);
+    --color3: pink;
+    --color4: yellow;
+    --color5: white;
+
+    --header-height: 80px;
+    --shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.45);
+    --gutter: 30px;
+    --footer-height: 25px;
+
+    font-family: 'Lato', sans-serif;
+    background-color: var(--color2);
+    background-image: url(../assets/mango.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--color1);
+    height: var(--header-height);
+    box-shadow: var(--shadow);
+    align-items: center;
+    width: 80vw;
+}
+
+section {
+    background-color: var(--color2);
+    width: 1000px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--gutter);
+    padding-bottom: var(--gutter);
+    margin-top: var(--gutter);
+    margin-bottom: var(--gutter);
+    border: solid 2px var(--color1);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.page-header {
+    position: sticky;
+    top: 0;
+    padding: 15px;
+    height: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 45px;
+}
+
+body {
+    height: 100vh;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background: var(--background);
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(var(--footer-height));
+    background-color: var(--color1);
+    height: 100vh;
+    width: 80vw;
+}
+
+
+.create-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#item-form {
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+#quantity-form {
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+input {
+    height: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    width: 100px;
+    border: 0;
+}
+
+
+
+.delete-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#delete-button {
+    height: 25px;
+    width: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    background-color: darkmagenta;
+    border: 10;
+    font-weight: bold;
+}
+
+#add-button {
+    height: 25px;
+    width: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    background-color: darkmagenta;
+    border: 10;
+    font-weight: bold;
+}
+
+.list {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: center space-evenly;
+    align-items: center;
+
+}
+
+.prompt {
+    font-size: 30px;
+    display: flex;
+    justify-content: center space-evenly;
+    align-items: flex-end;
+}
+
+a {
+    font-size: 25px;
+    padding-left: 5px;
+    color: black;
+    font-weight: 200;
+    border: 20;
+
+}
+
+
+section {
+    background-color: var(--color2);
+    width: 1000px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--gutter);
+    padding-bottom: var(--gutter);
+    margin-top: var(--gutter);
+    margin-bottom: var(--gutter);
+    border: solid 2px var(--color1);
+}
