@@ -1,6 +1,7 @@
 /* Imports */
 // this will check if we have a user and set signout link if it exists
-// import './auth/user.js';
+import './auth/user.js';
+
 
 const signInForm = document.getElementById('sign-in');
 const signInEmail = document.getElementById('sign-in-email');

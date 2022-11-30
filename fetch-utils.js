@@ -8,6 +8,18 @@ export function getUser() {
     return client.auth.user();
 }
 
+export async function checkAuth() {
+    const user = getUser();
+
+    if (!user) location.replace('../');
+}
+
+export async function redirectIfLoggedIn() {
+    if (getUser()) {
+        location.replace('./auth');
+    }
+}
+
 export async function signUpUser(email, password) {
     return await client.auth.signUp({
         email,
@@ -27,3 +39,17 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+export async function createListItem(item, quantity) {
+    const response = await client.from('grocery-list').insert({
+        item: item,
+        quantity: quantity,
+        cross_out: false,
+        user_id: client.auth.user().id,
+    });
+
+    if (response.error) {
+        console.error(response.error.message);
+    } else {
+        return response.data;
+    }
+}
