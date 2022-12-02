@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- title and favicon -->
-    <title>Supabase Web App</title>
+    <title>Shopping List</title>
     <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
 
     <!-- js -->
@@ -24,23 +24,43 @@
 
     <!-- css -->
     <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>My Shopping List</title>
     <!-- add link for page specific css -->
 
 </head>
 
 <body>
     <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png" alt="logo">
-        <p class="title">Supabase Web App</p>
+        <p class="title">My List of Things</p>
         <nav>
             <a href="/">Home</a>
             <a id="sign-out-link" href="auth">Sign Out</a>
+
         </nav>
     </header>
-
     <main>
-
+        <section class="prompt">
+            Add items to list below. Click an item to mark it off your list.
+        </section>
+        <section>
+            <form class="create-form">
+                <label id="item-form">
+                    Item:
+                    <input name="item" />
+                </label>
+                <label id="quantity-form">
+                    Quantity:
+                    <input type="number" name="quantity" min="1" />
+                </label>
+                <button type="submit" id="add-button">Add </button>
+            </form>
+            <p id="error"></p>
+            <ul class="list"></ul>
+            <section class="delete-btn">
+                <button type="button" id="delete-button">Delete List</button>
+            </section>
+        </section>
     </main>
 
 </body>

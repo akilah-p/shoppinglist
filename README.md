@@ -1,26 +1,36 @@
-## The Golden Rule:
+# plan
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+## List Page
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+-incorporate Create Functionality
+-form
+-input for name of item and rating (1-10) and submit button
+-ul
+-append each li based on info from supabase
+-delete button
 
-## Making a plan
+1. Database Setup
+   -make a table in Supabase
+   -foreign key relationship to users table (uuid)
+   -rls for user_id = uid()
 
-1. **Make a drawing of your app. Simple "wireframes"**
-1. **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-1. **For each HTML element ask: Why do I need this?**
-1. **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-1. **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-1. **Think about how to validate each of your features according to a Definition of Done**
-1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+2. Create from
+   -fetch function in fetch utils
+   -add submit event listener
+   -grab data using new FormData and send it to Supabase
+3. List all items (ul)
+   -fetch function in fetch utils
+   render function in render-utils
+   -write a display function in app.js
+   -call display function on page load
 
-Additional considerations:
+4. Update Item
+   (crossing out the item)
+   -update function in fetch'
+   -an event handler on our li elements
+   clickable
+   -re-display to the list
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+5. Delete (button)
+   -delete function in fetch
+   -add event listener to call the delete function
