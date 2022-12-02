@@ -2,13 +2,13 @@
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
 import { renderListItem } from './render-utils.js';
-import { getListItems, createListItems, editListItems, deleteLists, signOutUser } from './fetch-utils.js';
+import { getListItems, createListItems, editListItems, deleteLists } from './fetch-utils.js';
 
 const form = document.querySelector('.create-form');
 const deleteBtn = document.querySelector('#delete-button');
 const listEl = document.querySelector('.list');
 const error = document.querySelector('#error');
-const signOut = document.getElementById('sign-out-button');
+// const signOut = document.getElementById('sign-out-button');
 
 window.addEventListener('load', async () => {
     await displayLists();
@@ -55,7 +55,7 @@ async function displayLists() {
         }
     }
 }
-signOut.addEventListener('click', async () => {
-    await signOutUser();
-    window.location.replace('/auth');
-});
+// signOut.addEventListener('click', async () => {
+//     await signOutUser();
+//     window.location.replace('/auth');
+// });
