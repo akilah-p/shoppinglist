@@ -2,12 +2,13 @@
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
 import { renderListItem } from './render-utils.js';
-import { getListItems, createListItems, editListItems, deleteLists } from './fetch-utils.js';
+import { getListItems, createListItems, editListItems, deleteLists, signOutUser } from './fetch-utils.js';
 
 const form = document.querySelector('.create-form');
 const deleteBtn = document.querySelector('#delete-button');
 const listEl = document.querySelector('.list');
 const error = document.querySelector('#error');
+const signOut = document.getElementById('sign-out-button');
 
 window.addEventListener('load', async () => {
     await displayLists();
@@ -29,10 +30,17 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
+deleteBtn.addEventListener('click', async () => {
+    await deleteLists();
+    await displayLists();
+
+});
+
 // Display Functions
 async function displayLists() {
-    const list = await getListItems();
     listEl.textContent = '';
+    const list = await getListItems();
+
     if (list) {
         for (let item of list) {
             const listItemEl = renderListItem(item);
@@ -47,8 +55,7 @@ async function displayLists() {
         }
     }
 }
-deleteBtn.addEventListener('click', async () => {
-    await deleteLists();
-    await displayLists();
-
+signOut.addEventListener('click', async () => {
+    await signOutUser();
+    window.location.replace('/auth');
 });

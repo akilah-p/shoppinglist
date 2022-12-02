@@ -175,3 +175,7 @@ section {
     margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
 }
+
+.cross-out-true {
+    text-decoration: line-through;
+}
